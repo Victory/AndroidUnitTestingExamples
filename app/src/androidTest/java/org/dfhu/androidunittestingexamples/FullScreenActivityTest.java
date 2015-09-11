@@ -2,6 +2,8 @@ package org.dfhu.androidunittestingexamples;
 
 
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.ViewAsserts;
+import android.view.View;
 import android.widget.Button;
 
 public class FullScreenActivityTest extends ActivityInstrumentationTestCase2<FullscreenActivity> {
@@ -23,5 +25,8 @@ public class FullScreenActivityTest extends ActivityInstrumentationTestCase2<Ful
     public void testDummyFunction ()
     {
         assertTrue(mGoButton != null);
+
+        View decorView = mActivity.getWindow().getDecorView();
+        ViewAsserts.assertOnScreen(decorView, mGoButton);
     }
 }
